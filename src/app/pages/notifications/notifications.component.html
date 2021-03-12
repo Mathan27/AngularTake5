@@ -1,0 +1,77 @@
+<div class="row btn-page">
+    <div class="col-sm-8">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">
+            <div class="app-modal-header">
+              <h5 class="modal-title">Enter Notification Details</h5>
+            </div>
+            <div class="app-modal-body">
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="title">Title </label>
+                      <input class="form-control input-md" id="text" name="title" type="text"
+                        placeholder="Enter title "
+                        [ngClass]="{'is-invalid': !title.valid && (title.dirty || title.touched || isSubmit)}"
+                        #title="ngModel" required title [(ngModel)]="formInput.title">
+                      <label *ngIf="!title.valid && (title.dirty || title.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                        title.</label>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="description">Description </label>
+                      <input class="form-control input-md" id="text" name="description" type="text"
+                        placeholder="Enter description" [(ngModel)]="formInput.description">
+                      
+                      <!-- <label *ngIf="!description.valid && (description.dirty || description.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        Description.</label> -->
+                    </div>
+                  </div>
+  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-control-label" for="image" style="margin-bottom:20px;">Image</label>
+                      <file-upload accept="image/*" [(ngModel)]="uploadedFiles" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>
+  
+                  
+  
+                  
+  
+                  
+                </div>
+                  <hr>
+                  <div class="row align-items-center m-l-0">
+                    <div class="col-sm-6 text-left">
+  
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <div class="custom-control custom-switch">
+                        <button type="button" uiSref="work" class="btn btn-primary btn-raised" [disabled]="buttonloading"
+                          (click)="addnotification(validationForm)"> Add <div style="zoom:0.7;" class="spinner-border"
+                            *ngIf="buttonloading" role="status"></div></button>
+  
+                      </div>
+                    </div>
+                  </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  

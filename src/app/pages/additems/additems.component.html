@@ -1,0 +1,161 @@
+<div class="row btn-page" *ngIf="loading == false">
+  
+  <!-- [ tinymce editor ] start -->
+<div class="col-sm-12">
+  <div class="card border-0 shadow-none">
+    <div class="card-body pr-0 pl-0 pt-0">
+      <div class="row">
+        <div class="col-auto">
+        </div>
+        <div class="col">
+          <div class="tab-block  mb-4 pb-3">
+            
+          </div>
+          <h5 class="modal-title">Description</h5>
+<hr>
+          <!-- <p class="text-danger"><span class="font-weight-bold mr-1">Note!</span>This ticket is closed. If you want to re-open it, just post a reply below.</p> -->
+          <app-tinymce [(ngModel)]='products.desc' #tinymce='tinymce'></app-tinymce>
+          <div class="btn-block mt-3">
+            <div class="btn-group mb-2 mr-2" ngbDropdown>
+              <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- [ tinymce editor ] end -->
+
+
+  <div class="col-sm-12">
+    <app-card [hidHeader]="true" cardClass="card-datatable">
+      <div class="row align-items-center m-l-0">
+        <div class="col-sm-12 text-left">
+          <div class="app-modal-header"  >
+              <h5 class="modal-title">Enter Instrument Details</h5>
+              <!-- <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button> -->
+            </div>
+            <div class="app-modal-body" >
+            <br>
+            <br>
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+
+                  <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="lendername">SKU</label> 
+                        <input class="form-control input-md" id="text" name="sku" type="text" placeholder="Enter SKU" [ngClass]="{'is-invalid': !sku.valid && (sku.dirty || sku.touched || isSubmit)}" #sku="ngModel" required sku [(ngModel)]="formInput.sku">
+                        <label *ngIf="!sku.valid && (sku.dirty || sku.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the SKU.</label>
+                      </div>
+                    </div>  -->
+
+                    
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="productname">Instrument Name </label> 
+                      <input class="form-control input-md" id="text" name="productname" type="text" placeholder="Enter product name" [ngClass]="{'is-invalid': !productname.valid && (productname.dirty || productname.touched || isSubmit)}" #productname="ngModel" required productname [(ngModel)]="products.iname">
+                      <label *ngIf="!productname.valid && (productname.dirty || productname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the Instrument Name.</label>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="description">Description </label> 
+                      <input class="form-control input-md" id="text" name="description" type="text" placeholder="Enter description" [ngClass]="{'is-invalid': !description.valid && (description.dirty || description.touched || isSubmit)}" #description="ngModel" required description [(ngModel)]="formInput.description">
+                      <label *ngIf="!description.valid && (description.dirty || description.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the description.</label>
+                    </div>
+                  </div> -->
+                  <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Status</label>
+                    <select class="form-control" name="sku" #sku="ngModel" required sku [(ngModel)]="products.status" id="exampleFormControlSelect1">
+                      <option>active</option>
+                      <option>inactive</option>
+                      <label *ngIf="!sku.valid && (sku.dirty || sku.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the Status.</label>
+                    </select>
+                  </div>
+                </div>
+                <!--
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="sku">Status</label> 
+                      <input class="form-control input-md" id="text" name="sku" type="text" placeholder="Enter sku" [ngClass]="{'is-invalid': !sku.valid && (sku.dirty || sku.touched || isSubmit)}" #sku="ngModel" required sku [(ngModel)]="formInput.status">
+                      <label *ngIf="!sku.valid && (sku.dirty || sku.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the sku.</label>
+                    </div>
+                  </div>
+                -->
+                    
+                  
+                    <div class="col-md-6">  
+                      <div class="form-group" >
+                        <label class="form-control-label" for="levels" style="margin-bottom:20px;">Select Levels</label> 
+                        <ng-select [ngClass]="'ng-select'" [options]="levels" name="levels" [(ngModel)]="products.levels" [multiple] = true > </ng-select>
+                        <label *ngIf="!levels.valid && (levels.dirty || levels.touched || isSubmit) && (products.levels || products.levels.length == 0)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please Select Levels.</label>
+                      </div>
+                    </div>
+                  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label" for="price" style="margin-bottom:20px;">Image</label> 
+                      <file-upload accept="image/*"  [(ngModel)]="uploadedFiles3" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>
+                  
+
+                 
+
+
+
+
+                 
+                   
+               
+                 
+                </div>
+                <!-- <div class="form-group text-center">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+                </div> -->
+                <hr>
+                <p *ngIf ="error== 'yes'" style="font-weight: 600; color:red; text-align: center;font-size: 14px;"> Enter all Required Fields.</p>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="addproduct(validationForm)"> Add  <div style="zoom:0.7;" class="spinner-border" *ngIf="buttonloading"  role="status"></div></button>
+            
+                    </div>
+                  </div>
+                </div>
+                
+            </form>
+             
+           
+            </div> 
+  
+        </div>
+      
+       
+      
+
+        
+        
+      </div>
+    
+       
+    </app-card>
+  </div>
+ 
+</div>
+<ng2-toasty [position]="global.position"></ng2-toasty>
+<!--
+  <ng2-toasty [position]="global.position"></ng2-toasty>
+  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="addproduct(validationForm)"> Add  <div style="zoom:0.7;" class="spinner-border" *ngIf="buttonloading"  role="status"></div></button>
+      -->        

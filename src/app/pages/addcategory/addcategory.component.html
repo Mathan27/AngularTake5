@@ -1,0 +1,87 @@
+<div class="row btn-page">
+  <div class="col-sm-8">
+    <app-card [hidHeader]="true" cardClass="card-datatable">
+      <div class="row align-items-center m-l-0">
+        <div class="col-sm-12 text-left">
+          <div class="app-modal-header">
+            <h5 class="modal-title">Enter Category Details</h5>
+          </div>
+          <div class="app-modal-body">
+            <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="categoryname">Name </label>
+                    <input class="form-control input-md" id="text" name="categoryname" type="text"
+                      placeholder="Enter category name"
+                      [ngClass]="{'is-invalid': !categoryname.valid && (categoryname.dirty || categoryname.touched || isSubmit)}"
+                      #categoryname="ngModel" required categoryname [(ngModel)]="formInput.categoryname">
+                    <label *ngIf="!categoryname.valid && (categoryname.dirty || categoryname.touched || isSubmit)"
+                      id="validation-cmbGear-error"
+                      class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                      name.</label>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="image" style="margin-bottom:20px;">Image</label>
+                    <file-upload accept="image/*" [(ngModel)]="uploadedFiles" name="files" simple></file-upload>
+
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="priority">Priority </label>
+                    <input class="form-control input-md" id="text" name="priority" type="text"
+                      placeholder="Enter priority"
+                      [ngClass]="{'is-invalid': !priority.valid && (priority.dirty || priority.touched || isSubmit)}"
+                      #priority="ngModel" required priority [(ngModel)]="formInput.priority">
+                    <label *ngIf="!priority.valid && (priority.dirty || priority.touched || isSubmit)"
+                      id="validation-cmbGear-error"
+                      class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                      Priority.</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="offers">Categoryoffers </label>
+                    <input class="form-control input-md" id="text" name="offers" type="text"
+                      placeholder="Enter Categoryoffers"
+                      [ngClass]="{'is-invalid': !offers.valid && (offers.dirty || offers.touched || isSubmit)}"
+                      #offers="ngModel" required offers [(ngModel)]="formInput.offers">
+                    <label *ngIf="!offers.valid && (offers.dirty || offers.touched || isSubmit)"
+                      id="validation-cmbGear-error"
+                      class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                      Categoryoffers.</label>
+                  </div>
+                </div>
+
+                
+
+                <hr>
+                <div class="row align-items-center m-l-0">
+                  <div class="col-sm-6 text-left">
+
+                  </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised" [disabled]="buttonloading"
+                        (click)="addcategory(validationForm)"> Add <div style="zoom:0.7;" class="spinner-border"
+                          *ngIf="buttonloading" role="status"></div></button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

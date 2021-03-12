@@ -1,0 +1,285 @@
+<div class="row btn-page">
+    <div class="col-sm-8">
+      <app-card [hidHeader]="true" cardClass="card-datatable" *ngIf="formloading==false">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">
+            <div class="app-modal-header">
+              <h5 class="modal-title">Edit Category Details</h5>
+            </div>
+            <div class="app-modal-body">
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="categoryname">Name </label>
+                      <input class="form-control input-md" id="text" name="categoryname" type="text"
+                        placeholder="Enter category name" 
+                        [ngClass]="{'is-invalid': !categoryname.valid && (categoryname.dirty || categoryname.touched || isSubmit)}"
+                        #categoryname="ngModel" required categoryname [(ngModel)]="formInput.cname">
+                      <label *ngIf="!categoryname.valid && (categoryname.dirty || categoryname.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                        name.</label>
+                    </div>
+                  </div>
+  
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="image" style="margin-bottom:20px;">Image</label>
+                      <file-upload accept="image/*" [(ngModel)]="uploadedFiles" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="priority">Priority </label>
+                      <input class="form-control input-md" id="text" name="priority" type="text"
+                        placeholder="Enter priority" 
+                        [ngClass]="{'is-invalid': !priority.valid && (priority.dirty || priority.touched || isSubmit)}"
+                        #priority="ngModel" required priority [(ngModel)]="formInput.priority">
+                      <label *ngIf="!priority.valid && (priority.dirty || priority.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        Priority.</label>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="offers">Categoryoffers </label>
+                      <input class="form-control input-md" id="text" name="offers" type="text"
+                        placeholder="Enter Categoryoffers" 
+                        [ngClass]="{'is-invalid': !offers.valid && (offers.dirty || offers.touched || isSubmit)}"
+                        #offers="ngModel" required offers [(ngModel)]="formInput.categoryoffers">
+                      <label *ngIf="!offers.valid && (offers.dirty || offers.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        Categoryoffers.</label>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="form-control-label" style="margin-bottom:20px;" for="status">Status</label>
+                      <ng-select [ngClass]="'ng-select'"  [options]="status" name="status"
+                        [(ngModel)]="formInput.status"> </ng-select>
+                    </div>
+                  </div> -->
+  
+                  
+                </div>
+  
+                  <hr>
+                  <div class="row align-items-center m-l-0">
+                    <div class="col-sm-6 text-left">
+  
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <div class="custom-control custom-switch">
+                        <button type="button" uiSref="work" class="btn btn-primary btn-raised" [disabled]="buttonloading"
+                          (click)="editcategory(validationForm)"> Update <div style="zoom:0.7;" class="spinner-border"
+                            *ngIf="buttonloading" role="status"></div></button>
+  
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  
+
+<!-- subcategory table  starts-->
+<div class="col-sm-12"  *ngIf="formloading==false">
+  <app-card [hidHeader]="true" cardClass="card-datatable">
+    <div class="row align-items-center m-l-0">
+      <div class="col-sm-6 text-left">
+        <div  class="col-sm-6 text-left" *ngIf="loading==false" >
+          <!-- class="col-sm-8 " *ngIf="data.status!='Won'" -->
+          <!-- modalProject.show(); type='add'; -->
+          <div class="custom-control custom-switch">
+
+         
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-sm-6 text-right">
+        
+        <button class="btn btn-success btn-sm btn-round has-ripple" (click)="modalProject.show();  "><i class="feather icon-plus"></i> Add Subcategory</button>
+      </div>
+      <br>
+      <app-ui-modal #modalProject>
+        <div class="app-modal-header"  >
+          <h5 class="modal-title">Add Subcategory Details</h5>
+          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="app-modal-body" >
+          <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="cname">Subcategory name </label> 
+                  <input class="form-control input-md" id="text" name="cname" type="text" placeholder="Enter subcategory name" [ngClass]="{'is-invalid': !cname.valid && (cname.dirty || cname.touched || isSubmit)}" #cname="ngModel" required cname [(ngModel)]="formInput2.cname">
+                  <label *ngIf="!cname.valid && (cname.dirty || cname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+                </div>
+              </div>
+                 
+              
+           
+                <div class="col-md-12">
+                <div class="form-group">
+                  <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                  <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+
+                </div>
+              </div> 
+             </div>
+            <!-- <div class="form-group text-center">
+              <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+            </div> -->
+            <hr>
+            <div class="row align-items-center m-l-0" >
+              <div class="col-sm-6 text-left">
+               
+                          </div>
+              <div class="col-sm-6 text-right">
+                <div class="custom-control custom-switch">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="addsubcat(validationForm)"> ADD  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+        
+                </div>
+              </div>
+            </div>
+        </form>     
+        </div> 
+
+                
+      </app-ui-modal>
+
+
+      
+      
+    </div>
+    <br>
+    <div class="table-responsive" *ngIf="!loading">
+      <table  datatable  id="report-table" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Image</th> 
+           <th>Status</th>
+          <th>Action</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let x of tabledata1">
+          <td>{{x.sid}}</td>
+          <td>{{x.sname}} </td>
+          <td style="background-color:rgba(183, 158, 190, 0.295)"><img  style="max-height: 60px;"  src="{{x.image}}" alt="" class="img-fluid"></td>
+          <td>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked *ngIf="x.status =='active' && statusloading[x.sid]!=1"  (click)="chnagestatus(x.sid,'inactive')" class="custom-control-input" id="{{x.sid+'switch'}}">
+              <input type="checkbox"   *ngIf="x.status =='inactive'  && statusloading[x.sid]!=1"   (click)="chnagestatus(x.sid,'active')" class="custom-control-input" id="{{x.sid+'switch'}}">
+              <div style="zoom:0.7; margin-left:-55px !important;" class="spinner-border" *ngIf="statusloading[x.sid]==1" role="status">
+              </div>
+              <label  *ngIf="statusloading[x.sid]!=1" class="custom-control-label" for="{{x.sid+'switch'}}"></label>
+            </div>
+          </td>
+          <td><a href="javascript:"><i class="icon feather icon-edit f-w-600 f-16 m-r-15 text-c-green" (click)="showw(x.sid,x.sname)" ngbTooltip="Edit"></i></a><a href="javascript:"><i (click)="deletesubcat(x.sid)" ngbTooltip="Delete"  class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i></a></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>  
+
+
+    <app-ui-modal #modals>
+      <div class="app-modal-header"  >
+        <h5 class="modal-title">Edit Subcategory Details</h5>
+        <button type="button" class="close basic-close" data-dismiss="modals" aria-label="Close" (click)="modals.hide()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="app-modal-body" >
+        <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="cname">Subcategory name </label> 
+                <input class="form-control input-md" id="text" name="cname" type="text" placeholder="Enter Subcategory name"  [ngClass]="{'is-invalid': !cname.valid && (cname.dirty || cname.touched || isSubmit)}" #cname="ngModel" required cname [(ngModel)]="formInput3.sname">
+                <label *ngIf="!cname.valid && (cname.dirty || cname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                <file-upload accept="image/*" [(ngModel)]="formInput3.uploadedFiles" name="files" simple></file-upload>
+
+              </div>
+            </div> 
+          </div>
+          <hr>
+            <div class="row align-items-center m-l-0" >
+              <div class="col-sm-6 text-left">
+               
+                          </div>
+              <div class="col-sm-6 text-right">
+                <div class="custom-control custom-switch">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="updatesub(validationForm)"> UPDATE  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+        
+                </div>
+              </div>
+            </div>
+        </form>
+               
+      </div> 
+
+              
+    </app-ui-modal>
+
+
+
+
+        <div class="table-responsive" *ngIf="loading==true">
+      <table  [dtOptions]="dtExportButtonOptions"  datatable  id="report-table" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Action</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let x of [0,1,2,3,4,5,7]; let i = index;">
+          <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+          <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+          <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+          <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+         
+
+       
+        </tr>
+
+
+  
+
+
+
+      
+        </tbody>
+      </table>
+    </div>
+  </app-card>
+</div>
+<!-- subcategory table  ends-->
+
+<ng2-toasty [position]="global.position"></ng2-toasty>
+

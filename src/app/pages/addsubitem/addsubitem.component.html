@@ -1,0 +1,172 @@
+<div class="row btn-page">
+   
+    <div class="col-sm-5" *ngIf="!loading">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">
+            <div class="app-modal-header"  >
+                <p routerLink="/product/{{id}}"><i class="fas fa-angle-left"></i> Back</p>
+                <h3>{{ddata.productname}} </h3>
+                <!-- <h3>{{ddata.productname}} ({{ddata.sku}}) </h3> -->
+                <h5 class="modal-title">Enter Sub product Details</h5>
+                <!-- <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button> -->
+              </div>
+              <div class="app-modal-body" >
+              <br>
+              <br>
+                <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                  <div class="row">
+
+                    <!-- <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="lendername">SKU</label> 
+                          <input class="form-control input-md" id="text" name="sku" type="text" placeholder="Enter SKU" [ngClass]="{'is-invalid': !sku.valid && (sku.dirty || sku.touched || isSubmit)}" #sku="ngModel" required sku [(ngModel)]="formInput.sku">
+                          <label *ngIf="!sku.valid && (sku.dirty || sku.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the SKU.</label>
+                        </div>
+                      </div>  -->
+
+                      
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="name">Name </label> 
+                        <input class="form-control input-md" id="text" name="name" type="text" placeholder="Enter product name" [ngClass]="{'is-invalid': !name.valid && (name.dirty || name.touched || isSubmit)}" #name="ngModel" required name [(ngModel)]="formInput.name"  [ngModelOptions]="{standalone: true}">
+                        <label *ngIf="!name.valid && (name.dirty || name.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+                      </div>
+                    </div>
+
+              <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="length">Thickness </label> 
+                        <input class="form-control input-md" id="text" name="thickness" type="text" placeholder="Enter thickness" [ngClass]="{'is-invalid': !thickness.valid && (thickness.dirty || thickness.touched || isSubmit)}" #thickness="ngModel" required thickness [(ngModel)]="formInput.thickness"  [ngModelOptions]="{standalone: true}">
+                        <label *ngIf="!thickness.valid && (thickness.dirty || thickness.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the thickness.</label>
+                      </div>
+                    </div>
+
+              <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="length">Length </label> 
+                        <input class="form-control input-md" id="text" name="length" type="text" placeholder="Enter length" [ngClass]="{'is-invalid': !length.valid && (length.dirty || length.touched || isSubmit)}" #length="ngModel" required length [(ngModel)]="formInput.length"  [ngModelOptions]="{standalone: true}">
+                        <label *ngIf="!length.valid && (length.dirty || length.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the length.</label>
+                      </div>
+                    </div>
+
+                   <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="length">Height </label> 
+                        <input class="form-control input-md" id="text" name="height" type="text" placeholder="Enter height" [ngClass]="{'is-invalid': !height.valid && (height.dirty || height.touched || isSubmit)}" #height="ngModel" required height [(ngModel)]="formInput.height"  [ngModelOptions]="{standalone: true}">
+                        <label *ngIf="!height.valid && (height.dirty || height.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the height.</label>
+                      </div>
+                    </div>
+
+           <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="slabcount">Slabs Available </label> 
+                        <input class="form-control input-md" id="text" name="slabcount" type="text" placeholder="Enter slabs count" [ngClass]="{'is-invalid': !slabcount.valid && (slabcount.dirty || slabcount.touched || isSubmit)}" #slabcount="ngModel" required length [(ngModel)]="formInput.slabcount"  [ngModelOptions]="{standalone: true}">
+                        <label *ngIf="!slabcount.valid && (slabcount.dirty || slabcount.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the slabs available.</label>
+                      </div>
+                    </div>
+      
+                   
+      
+<!--                   
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="brand">Brand </label> 
+                        <input class="form-control input-md" id="text" name="brand" type="text" placeholder="Enter the brand" [ngClass]="{'is-invalid': !brand.valid && (brand.dirty || brand.touched || isSubmit)}" #brand="ngModel" required brand [(ngModel)]="formInput.brand">
+                        <label *ngIf="!brand.valid && (brand.dirty || brand.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the brand.</label>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="suitablefor">Suitable for </label> 
+                        <input class="form-control input-md" id="text" name="suitablefor" type="text" placeholder="Enter the suitable for" [ngClass]="{'is-invalid': !suitablefor.valid && (suitablefor.dirty || suitablefor.touched || isSubmit)}" #suitablefor="ngModel" required suitablefor [(ngModel)]="formInput.suitablefor">
+                        <label *ngIf="!suitablefor.valid && (suitablefor.dirty || suitablefor.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the suitable for.</label>
+                      </div>
+                    </div>
+ -->
+
+
+<!--                     
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label"  style="margin-bottom:20px;" for="rating">Category</label> 
+                        <ng-select [ngClass]="'ng-select'" [options]="categories" name="category" [(ngModel)]="formInput.category" > </ng-select>
+                      </div>
+                    </div>
+
+                                 
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label"  style="margin-bottom:20px;" for="rating">Color</label> 
+                        <ng-select [ngClass]="'ng-select'" [options]="siteoptions" name="color" [(ngModel)]="formInput.color" > </ng-select>
+                      </div>
+                    </div>
+
+              -->
+
+                 
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-control-label" for="price" style="margin-bottom:20px;">Image</label> 
+                          <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                          <file-upload accept="image/*"  [(ngModel)]="uploadedFiles" name="files" simple></file-upload>
+      
+                        </div>
+                      </div>  
+<!-- 
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="description">Description</label> 
+                        <textarea  class="form-control input-md" id="text" name="descrpition" type="text" placeholder="Enter the description" [ngClass]="{'is-invalid': !description.valid && (description.dirty || description.touched || isSubmit)}" #description="ngModel" required description [(ngModel)]="formInput.description"  rows="4"></textarea>
+                        <label *ngIf="!description.valid && (description.dirty || description.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the description.</label>
+                      </div>
+                    </div> -->
+
+
+                 
+                   
+    
+    
+              
+    
+         
+                   
+             
+                 
+                     
+                 
+                   
+                  </div>
+                  <!-- <div class="form-group text-center">
+                    <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+                  </div> -->
+                  <hr>
+                  <div class="row align-items-center m-l-0" >
+                    <div class="col-sm-6 text-left">
+                     
+                                </div>
+                    <div class="col-sm-6 text-right">
+                      <div class="custom-control custom-switch">
+                        <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="addlender(validationForm)"> Add  <div style="zoom:0.7;" class="spinner-border" *ngIf="buttonloading"  role="status"></div></button>
+              
+                      </div>
+                    </div>
+                  </div>
+              </form>
+               
+             
+              </div> 
+    
+          </div>
+
+          
+        </div>
+      
+         
+      </app-card>
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty>
+  

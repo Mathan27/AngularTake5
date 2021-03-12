@@ -1,0 +1,135 @@
+<div class="row btn-page">
+    <div class="col-sm-8">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">
+            <div class="app-modal-header">
+              <h5 class="modal-title">Enter User Details</h5>
+            </div>
+            <div class="app-modal-body">
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+  
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="user">username </label>
+                            <input class="form-control input-md" id="text" name="user" type="text"
+                              placeholder="Enter username"
+                              [ngClass]="{'is-invalid': !user.valid && (user.dirty || user.touched || isSubmit)}"
+                              #user="ngModel" required user [(ngModel)]="formInput.user">
+                            <label *ngIf="!user.valid && (user.dirty || user.touched || isSubmit)"
+                              id="validation-cmbGear-error"
+                              class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                              username.</label>
+                          </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="password">Password </label>
+                            <input class="form-control input-md" id="text" name="password" type="text"
+                              placeholder="Enter password"
+                              [ngClass]="{'is-invalid': !password.valid && (password.dirty || password.touched || isSubmit)}"
+                              #password="ngModel" required password [(ngModel)]="formInput.password">
+                            <label *ngIf="!password.valid && (password.dirty || password.touched || isSubmit)"
+                              id="validation-cmbGear-error"
+                              class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                              password.</label>
+                          </div>
+                      </div>
+  
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label" for="mobile">Mobile </label>
+                        <input class="form-control input-md" id="text" name="mobile" type="text"
+                          placeholder="Enter mobile number"
+                          [ngClass]="{'is-invalid': !mobile.valid && (mobile.dirty || mobile.touched || isSubmit)}"
+                          #mobile="ngModel" required mobile [(ngModel)]="formInput.mobile">
+                        <label *ngIf="!mobile.valid && (mobile.dirty || mobile.touched || isSubmit)"
+                          id="validation-cmbGear-error"
+                          class="error jquery-validation-error small form-text invalid-feedback">Please enter the
+                          mobile number.</label>
+                      </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="email">Email </label>
+                      <input class="form-control input-md" id="text" name="email" type="text"
+                        placeholder="Enter Email"
+                        [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
+                        #email="ngModel" required email [(ngModel)]="formInput.email">
+                      <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        Email.</label>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="address">Address  </label>
+                      <input class="form-control input-md" id="text" name="address" type="text"
+                        placeholder="Enter address"
+                        [ngClass]="{'is-invalid': !address.valid && (address.dirty || address.touched || isSubmit)}"
+                        #address="ngModel" required address [(ngModel)]="formInput.address">
+                      <label *ngIf="!address.valid && (address.dirty || address.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        address.</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pincode">Pincode  </label>
+                      <input class="form-control input-md" id="text" name="pincode" type="text"
+                        placeholder="Enter pincode"
+                        [ngClass]="{'is-invalid': !pincode.valid && (pincode.dirty || pincode.touched || isSubmit)}"
+                        #pincode="ngModel" required pincode [(ngModel)]="formInput.pincode">
+                      <label *ngIf="!pincode.valid && (pincode.dirty || pincode.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        pincode.</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="shopname">Shopname  </label>
+                      <input class="form-control input-md" id="text" name="shopname" type="text"
+                        placeholder="Enter shopname"
+                        [ngClass]="{'is-invalid': !shopname.valid && (shopname.dirty || shopname.touched || isSubmit)}"
+                        #shopname="ngModel" required shopname [(ngModel)]="formInput.shopname">
+                      <label *ngIf="!shopname.valid && (shopname.dirty || shopname.touched || isSubmit)"
+                        id="validation-cmbGear-error"
+                        class="error jquery-validation-error small form-text invalid-feedback">Please enter
+                        shopname.</label>
+                    </div>
+                  </div>
+                  
+  
+                  <hr>
+                  <div class="row align-items-center m-l-0">
+                    <div class="col-sm-6 text-left">
+  
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <div class="custom-control custom-switch">
+                        <button type="button" uiSref="work" class="btn btn-primary btn-raised" [disabled]="buttonloading"
+                          (click)="adduser(validationForm)"> Add <div style="zoom:0.7;" class="spinner-border"
+                            *ngIf="buttonloading" role="status"></div></button>
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  

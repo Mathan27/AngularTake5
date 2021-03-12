@@ -1,0 +1,247 @@
+<div class="row"> 
+
+  <!-- navbar start -->
+
+  <div class="col-xl-12 col-lg-12 filter-bar invoice-list">
+    <nav class="navbar m-b-30 p-10">
+      <ul class="nav">
+        <li class="nav-item active">
+          <button class="btn btn-primary btn-sm btn-round has-ripple" (click)="filter= !filter"><i
+            class="feather icon-filter"></i> Filter</button>          </li>
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bydate"><i class="far fa-clock"></i> By Date</a>
+          <div ngbDropdownMenu aria-labelledby="bydate">
+            <a class="dropdown-item" href="javascript:"  [ngClass]="{'all' : this.selectedtime=='today'}" (click)="alldata('reload')">Show all</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='today'}" (click)="today('reload')">Today</a>
+            <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='yesterday'}" (click)="yesterday('reload')">Yesterday</a>
+            <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='last7'}" (click)="last7('reload')">Last 7 days</a>
+            <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='last30'}" (click)="last30('reload')">Last 30 days</a>
+          
+          </div>
+          <style>
+            .time{
+             background-color: rgba(144, 223, 26, 0.527);
+            }
+          </style>
+        </li>
+        <!-- <li class="nav-item" ngbDropdown>
+          <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bystatus"><i class="fas fa-chart-line"></i> By Status</a>
+          <div ngbDropdownMenu aria-labelledby="bystatus">
+            <a class="dropdown-item" href="javascript:">Show all</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:">Open</a>
+            <a class="dropdown-item" href="javascript:">On hold</a>
+            <a class="dropdown-item" href="javascript:">Resolved</a>
+            <a class="dropdown-item" href="javascript:">Closed</a>
+            <a class="dropdown-item" href="javascript:">Dublicate</a>
+            <a class="dropdown-item" href="javascript:">Wontfix</a>
+          </div>
+        </li> -->
+        <!-- <li class="nav-item" ngbDropdown>
+          <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bypriority"><i class="fas fa-list-ol"></i> By Priority</a>
+          <div ngbDropdownMenu aria-labelledby="bypriority">
+            <a class="dropdown-item" href="javascript:">Show all</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:">Highest</a>
+            <a class="dropdown-item" href="javascript:">High</a>
+            <a class="dropdown-item" href="javascript:">Normal</a>
+            <a class="dropdown-item" href="javascript:">Low</a>
+          </div>
+        </li> -->
+      </ul>
+      <div class="nav-item nav-grid">
+        <!-- <span class="m-r-15">View Mode: </span> -->
+        <!-- <button type="button" class="btn btn-primary btn-icon" (click)="ngOnInit()" [placement]="'top'" ngbTooltip="refresh">
+          <i class="fas fa-sync"></i>
+        </button> -->
+        <!-- <button type="button" class="btn btn-primary btn-icon" [placement]="'top'" ngbTooltip="grid view">
+          <i class="fas fa-fa-refresh"></i>
+        </button> -->
+      </div>
+<div class="col-lg-12 col-md-12 row"> 
+      <ng-container *ngIf="filter==1">
+<br>
+<br>
+<br>
+        <div class="col-lg-6 col-md-12">
+          <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t">
+          </ngb-datepicker>
+
+          <ng-template #t let-date="date" let-focused="focused">
+            <span class="custom-range-datepicker" [class.focused]="focused"
+              [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+              [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+          </ng-template>
+          <pre
+            class="m-t-20">Selected Date Range: {{ parserFormatter.format(fromDate) }} to {{ parserFormatter.format(toDate) }}</pre>
+<span class="badge m-r-5 badge-light-primary" (click)="today()">Today</span>
+<span class="badge m-r-5 badge-light-primary" (click)="yesterday()">yesterday</span>
+<span class="badge m-r-5 badge-light-primary" (click)="last7()">Last 7 days</span>
+<span class="badge m-r-5 badge-light-primary" (click)="last30()">Last 30 days</span>
+
+<button class="btn btn-primary btn-sm btn-round has-ripple" (click)="filter= !filter"><i
+  class="feather icon-filter"></i> Filter</button>     
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="row">
+           
+
+            
+          
+
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <button class="btn btn-primary btn btn-round has-ripple"
+            (click)="filterbydate(parserFormatter.format(fromDate),parserFormatter.format(toDate))"> Submit</button>
+        </div>
+
+      </ng-container>
+    </div>
+    </nav>
+ 
+  </div>
+  <ng-container *ngIf="loading==false">
+  <!-- leads start -->
+  <div class="col-md-12 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c-blue order-card">
+      <h6 class="text-white">Leads opened</h6>
+      <h2 class="text-white">{{countdata.open}}</h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-up m-l-10"></i></p> -->
+      <i class="card-icon feather icon-users"></i>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c-green order-card">
+      <h6 class="text-white">Leads Won</h6>
+      <h2 class="text-white">{{countdata.won}}</h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-up m-l-10 m-r-10"></i>$1,055 <i class="feather icon-arrow-down"></i></p> -->
+      <i class="card-icon feather icon-user-plus"></i>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c-red order-card">
+      <h6 class="text-white">leads Lost</h6>
+      <h2 class="text-white">{{countdata.lost}}</h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-down m-l-10 m-r-10"></i>$1,055 <i class="feather icon-arrow-up"></i></p> -->
+      <i class="card-icon feather icon-user-minus"></i>
+    </app-card>
+  </div>
+  <!-- leads end -->
+  <div class="col-sm-12">
+    <app-card [hidHeader]="true" cardClass="card-datatable">
+    <div class="table-responsive" *ngIf="!loading">
+          <table datatable  id="report-table" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Agent Id</th>
+              <th>Username</th>
+              
+              <th>Last Active</th>
+              
+              
+             
+              <th>Pending</th>
+              <th>Attended</th>
+              <th>Won</th>
+              
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of tabledata;" routerLink="/viewagent/{{x.id}}">
+            <td >{{x.id}}</td>
+            <td>{{x.agentid}}</td>
+            <td>{{x.username}}</td>
+           
+              <td>{{x.last_active}} </td>
+              
+            <td>{{x.pending}}
+              
+                
+                  <td>{{x.attended}}</td>
+                  <td>
+                    {{x.won}}
+                    </td>
+              
+
+            </tr>
+ 
+
+      
+
+
+   
+          
+            </tbody>
+          </table>
+        </div>
+    </app-card></div>
+ </ng-container> 
+  <ng-container *ngIf="loading==true">
+  <!-- leads start -->
+  <div class="col-md-12 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c order-card">
+      <h6 class="text-white"> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h6>
+      <h2 class="text-white"><div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-up m-l-10"></i></p> -->
+      <i class="card-icon feather icon-users"></i>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c- order-card">
+      <h6 class="text-white"><div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h6>
+      <h2 class="text-white"><div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-up m-l-10 m-r-10"></i>$1,055 <i class="feather icon-arrow-down"></i></p> -->
+      <i class="card-icon feather icon-user-plus"></i>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <app-card [hidHeader]="true" cardClass="bg-c order-card">
+      <h6 class="text-white"><div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h6>
+      <h2 class="text-white"><div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>       </h2>
+      <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-down m-l-10 m-r-10"></i>$1,055 <i class="feather icon-arrow-up"></i></p> -->
+      <i class="card-icon feather icon-user-minus"></i>
+    </app-card>
+  </div>
+  <!-- leads end -->
+ </ng-container>
+<div class="col-md-6" *ngIf="loading==true">
+  <app-card [options]="false">
+    <div class="item"><ngx-skeleton-loader style="height:400px" count="10" > </ngx-skeleton-loader></div>       
+  </app-card>
+</div>
+<div class="col-md-6" *ngIf="loading==true">
+  <app-card [options]="false">
+    <div class="item"><ngx-skeleton-loader style="height:400px" count="10" > </ngx-skeleton-loader></div>       
+  </app-card>
+</div>
+
+<div class="col-md-6" *ngIf="loading==false">
+  <app-card cardTitle="By sites" [options]="false">
+    <app-apex-chart chartID="bar-chart-1-cac" [chartConfig]="bar"></app-apex-chart>
+  </app-card>
+</div>
+
+<div class="col-md-6" *ngIf="loading==false">
+  <app-card cardTitle="By teams" [options]="false">
+    <app-apex-chart chartID="bar-chart-1-csxdsac" [chartConfig]="teambar"></app-apex-chart>
+  </app-card>
+</div>
+
+<!-- <div class="col-md-6">
+  <app-card cardTitle="By sites" [options]="false">
+    <app-apex-chart chartID="area-chart-1-cac" [chartConfig]="area"></app-apex-chart>
+  </app-card>
+</div> -->
+
+</div>

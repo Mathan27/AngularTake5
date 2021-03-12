@@ -1,0 +1,213 @@
+<div class="row btn-page">
+    
+    <div class="col-sm-12">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6 text-right">
+            <button class="btn btn-success btn-sm btn-round has-ripple" (click)="modalProject.show()"><i class="feather icon-plus"></i> Add Agent</button>
+          </div>
+          <app-ui-modal #modalProject>
+            <div class="app-modal-header">
+              <h5 class="modal-title">Enter Agent Details</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="app-modal-body">
+            
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="firstname">First Name</label> 
+                      <input class="form-control input-md" id="text" name="firstname" type="text" placeholder="Enter Firstname" [ngClass]="{'is-invalid': !firstname.valid && (firstname.dirty || firstname.touched || isSubmit)}" #firstname="ngModel" required firstname [(ngModel)]="formInput.firstname">
+                      <label *ngIf="!firstname.valid && (firstname.dirty || firstname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the first name.</label>
+                    </div>
+                  </div>  
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="lastname">Last Name</label> 
+                      <input class="form-control input-md" id="text" name="lastname" type="text" placeholder="Enter Lastname" [ngClass]="{'is-invalid': !lastname.valid && (lastname.dirty || lastname.touched || isSubmit)}" #lastname="ngModel" required lastname [(ngModel)]="formInput.lastname">
+                      <label *ngIf="!lastname.valid && (lastname.dirty || lastname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the last name.</label>
+                    </div>
+                  </div> 
+
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="agentid">Agent Id </label> 
+                      <input class="form-control input-md" id="text" name="agentid" type="text" placeholder="Enter Agent Id" [ngClass]="{'is-invalid': !agentid.valid && (agentid.dirty || agentid.touched || isSubmit)}" #agentid="ngModel" required agentid [(ngModel)]="formInput.agentid">
+                      <label *ngIf="!agentid.valid && (agentid.dirty || agentid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the Agent id.</label>
+                    </div>
+                  </div>  
+
+                                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="username">Username</label> 
+                      <input class="form-control input-md" id="text" name="username" type="text" placeholder="Enter Username" [ngClass]="{'is-invalid': !username.valid && (username.dirty || username.touched || isSubmit)}" #username="ngModel" required username [(ngModel)]="formInput.username">
+                      <label *ngIf="!username.valid && (username.dirty || username.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the username.</label>
+                    </div>
+                  </div>  
+
+
+            
+
+                     <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="password">Password </label> 
+                      <input class="form-control input-md" id="text" name="password" type="text" placeholder="Enter Password" [ngClass]="{'is-invalid': !password.valid && (password.dirty || password.touched || isSubmit)}" #password="ngModel" required password [(ngModel)]="formInput.password">
+                      <label *ngIf="!password.valid && (password.dirty || password.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the password.</label>
+                    </div>
+                  </div>  
+                
+                 
+           
+                     <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="confirmpassword">Confirm Password </label> 
+                      <input class="form-control input-md" id="text" name="confirmpassword" type="text" placeholder="Re-enter Password" [ngClass]="{'is-invalid': !confirmpassword.valid && (confirmpassword.dirty || confirmpassword.touched || isSubmit)}" [equalTo]="password"  #confirmpassword="ngModel" required password [(ngModel)]="formInput.confirmpassword">
+                      <label *ngIf="!confirmpassword.valid && (confirmpassword.dirty || confirmpassword.touched || isSubmit) " id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please Re-enter the correct password.</label>
+                    </div>
+                  </div>  
+                 
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Team</label>
+                      <select class="form-control" name="validation-cmbGear" [ngClass]="{'is-invalid': !team.valid && (team.dirty || team.touched || isSubmit)}" #team="ngModel" required [(ngModel)]="formInput.team">
+                       
+                          <option  *ngFor="let x of teams" value={{x.id}}>{{x.name}}</option>
+                          
+                      </select>
+                      <label *ngIf="!team.valid && (team.dirty || team.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid team</label>
+                    </div>
+                  </div>
+                
+                      <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Role</label>
+                      <select class="form-control" name="validation-cmbGear" [ngClass]="{'is-invalid': !role.valid && (role.dirty || role.touched || isSubmit)}" #role="ngModel" required [(ngModel)]="formInput.role">
+                       
+                          <option  value="admin">Admin</option>
+                          <option  value="agent">Agent</option>
+                          
+                      </select>
+                      <label *ngIf="!role.valid && (role.dirty || role.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please select a valid role</label>
+                    </div>
+                  </div>
+                
+                  
+           
+                   
+               
+                 
+                </div>
+                <!-- <div class="form-group text-center">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+                </div> -->
+                <hr>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="addagent(validationForm)"> Add  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+            
+                    </div>
+                  </div>
+                </div>
+            </form>
+             
+           
+            </div>
+          </app-ui-modal>
+        </div>
+        <div class="table-responsive" *ngIf="!loading">
+          <table datatable  id="report-table" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Agent Id</th>
+              <th>Username</th>
+              
+              <th>Last Active</th>
+              
+              <th>Team</th>
+              <th>Role</th>
+              <th>Status</th>
+              
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of tabledata;" routerLink="/viewagent/{{x.id}}">
+            <td >{{x.id}}</td>
+            <td>{{x.agentid}}</td>
+            <td>{{x.username}}</td>
+           
+              <td>{{x.last_active}} </td>
+              
+            <td><span class="badge badge-success inline-block" *ngIf="'x.team % 2' ==0">{{x.teamname}}</span>
+              <span class="badge badge-success inline-block" *ngIf="'x.team % 2' !=0">{{x.teamname}}</span>
+              
+                <td><span class="badge badge-success inline-block" *ngIf="x.role=='admin'">Admin</span>
+                  <span class="badge badge-warning inline-block" *ngIf="x.role=='agent'">Agent</span>
+                  <span class="badge badge-primary inline-block" *ngIf="x.role=='superadmin'">Superadmin</span>
+                  </td>
+                  <td><span class="badge badge-success inline-block" *ngIf="x.status=='active'">Active</span>
+                    <span class="badge badge-danger inline-block" *ngIf="x.status=='inactive'">Inactive</span>
+                    </td>
+              
+
+            </tr>
+ 
+
+      
+
+
+   
+          
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive" *ngIf="loading">
+          <table datatable  id="report-table" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Agent Id</th>
+              <th>Username</th>
+              
+              <th>Last Active</th>
+              
+              <th>Team</th>
+              <th>Role</th>
+              <th>Status</th>
+              
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of [0,1,2,3,4,5,6,7];" routerLink="/viewagent/{{x.id}}">
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+             
+
+            </tr>
+ 
+
+      
+
+
+   
+          
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty>

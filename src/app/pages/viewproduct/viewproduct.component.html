@@ -1,0 +1,291 @@
+<div class="row" style="margin-top:-5%;">
+
+    <div class="col-sm-4" *ngIf="loading==false">
+      <app-card cardTitle="Product details" style="overflow:visible;">
+        <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="fullname">Part Number </label>
+                <input class="form-control input-md" id="fullname" name="fullname" type="text" placeholder="Enter name"
+                  value="{{data.name}}"
+                  #fullname="ngModel" required name [(ngModel)]="data.name">
+           
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="fullname"> Name </label>
+                <input class="form-control input-md" id="fullname" name="fullname" type="text" placeholder="Enter name"
+                  value="{{data.name}}"
+                  #fullname="ngModel" required name [(ngModel)]="data.name">
+             
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="email">Brand</label>
+                <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
+                  required email [(ngModel)]="data.email">
+            
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="mobile">Suitable for</label>
+                <input class="form-control input-md" id="email" name="mobile" type="text" placeholder="Enter mobile"
+                  #mobile="ngModel" required mobile [(ngModel)]="data.mobile">
+              
+              </div>
+            </div> 
+             <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="mobile">Rating </label>
+                <input class="form-control input-md" id="email" name="mobile" type="text" placeholder="Enter mobile"
+                  #mobile="ngModel" required mobile [(ngModel)]="data.mobile">
+               
+              </div>
+            </div>
+  
+          
+            <div class="col-md-4">
+                <div class="form-group"> 
+                    <img src="https://www.henredfruehauf.co.za/TrailerImages/RearEndTipper/Rear_Tipper_Trailer_Medium.jpg" style="height: 100px;"/>
+
+                </div>
+              </div>
+                <div class="col-md-2">
+              
+              </div>
+                  <div class="col-md-6">
+                <div class="form-group"> 
+                    <label class="form-control-label"  style="margin-bottom: 20px; margin-top: 0px;" for="link">Image</label> 
+
+                  <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                  <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+
+                </div>
+              </div> 
+  
+          
+  
+  
+          </div>
+          <!-- <div class="form-group text-center">
+              <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+            </div> -->
+          <hr>
+          <div class="row align-items-center m-l-0">
+            <div class="col-sm-6 text-left">
+  
+            </div>
+            <div class="col-sm-6 text-right">
+              <div class="custom-control custom-switch">
+                <button type="button" uiSref="work" class="btn btn-primary btn-raised" (click)="update(validationForm)">
+                  Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+  
+              </div>
+            </div>
+          </div>
+        </form>
+      </app-card>
+    </div>
+  
+  
+           <!-- [ Gallery-Masonry ] start -->
+           <div class="col-xl-4 col-md-12 gallery-masonry">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Images</h5>
+                </div>
+                <style>
+               .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    font-size: 22px;
+    zoom: 1 !important;
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+</style>
+                <div class="card-body">
+                    <div class="card-columns">
+                        <div class="card">
+                            <span class="close" (click)="delimg()" >&times;</span>
+                            <img class="img-fluid card-img-top" src="https://www.henredfruehauf.co.za/TrailerImages/SideTipper/Side-Tipper.png" alt="Card image">
+                        </div>
+                         <div class="card">
+                            <span class="close" (click)="delimg()">&times;</span>
+                            <img class="img-fluid card-img-top" src="https://www.henredfruehauf.co.za/TrailerImages/RearEndTipper/Rear_Tipper_Trailer_Medium.jpg" alt="Card image">
+                        </div>
+                         <div class="card">
+                            <span class="close" (click)="delimg()">&times;</span>
+                            <img class="img-fluid card-img-top" src="https://www.henredfruehauf.co.za/TrailerImages/WalkingFLoor/Trailer_Walking_Floor_Medium.jpg" alt="Card image">
+                        </div>
+                         <div class="card">
+                            <span class="close" (click)="delimg()">&times;</span>
+                            <img class="img-fluid card-img-top" src="https://www.henredfruehauf.co.za/TrailerImages/Flatdeck/Flatdeck_Trailer_Medium.jpg" alt="Card image">
+                        </div>
+                         <div class="card">
+                            <span class="close" (click)="delimg()">&times;</span>
+                            <img class="img-fluid card-img-top" src="https://www.henredfruehauf.co.za/TrailerImages/DropsideTippers/DropsideTipper_Medium.jpg" alt="Card image">
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ Gallery-Masonry ] end -->
+       
+  
+    <div class="col-sm-4">
+      <div _ngcontent-cvs-c93="" class="card ng-tns-c93-13 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+        <!---->
+        <div _ngcontent-cvs-c93="" class="card-body ng-tns-c93-13 ng-star-inserted" style="">
+          <h5 _ngcontent-cvs-c120="" class="mb-3 ng-tns-c93-13">Upload Images</h5>
+      
+          <div _ngcontent-cvs-c120="" class="row ng-tns-c93-13">
+            <div _ngcontent-cvs-c120="" class="col col-6">
+              
+            </div>
+            <div _ngcontent-cvs-c120="" class="col col-6">
+              <div _ngcontent-cvs-c120="" class="map-area">
+                <h6 _ngcontent-cvs-c120="" class="m-0">{{data.leadfrom}} <span _ngcontent-cvs-c120=""></span></h6>
+  
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+           
+            <div class="col-sm-12 text-left" *ngIf="data.status!='Won'">
+                <div class="form-group"> 
+
+                  <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                  <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+
+                </div>  
+            </div>
+           
+  
+  
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+      </div>
+  
+  
+      <div _ngcontent-cvs-c129="" class="marge-card mb-3" *ngIf="data.bannerimage">
+         <div _ngcontent-cvs-c93="" class="card ng-tns-c93-723 ng-trigger ng-trigger-cardRemove mb-0"
+            style="opacity: 1;">
+            <!---->
+            <div _ngcontent-cvs-c93="" class="card-body ng-tns-c93-723 p-0 ng-star-inserted" style=""><img
+                _ngcontent-cvs-c129="" src="http://54.183.80.176/onlinespeedyloan/{{data.bannerimage}}" alt="Card image cap"
+                class="card-img-top ng-tns-c93-723"></div>
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        
+          <div _ngcontent-cvs-c93="" class="card ng-tns-c93-724 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+            <!---->
+            <div _ngcontent-cvs-c93="" class="card-body ng-tns-c93-724 m-t-15 ng-star-inserted" style="">
+              <h5 _ngcontent-cvs-c129="" class="card-title ng-tns-c93-724">{{data.bannername}}</h5>
+  
+            </div>
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        </div>
+  
+      <app-card [hidHeader]="true" cardClass="statustic-progress-card"
+        *ngIf="global.userdata.role!='agent'&& data.status!='Won'">
+        <div class="row ">
+          <div class="col-sm-4 text-left">
+            <h5 class="mb-3">Stock</h5>
+  
+          </div>
+
+          <div class="col-sm-8 ">
+             </div>
+          <div class="col-sm-6 ">
+            <div class="custom-control custom-switch">
+                    <div class="form-group">
+                      <input class="form-control input-md" id="email" name="mobile" type="text" placeholder="Enter stock"
+                        
+                        #mobile="ngModel" required mobile [(ngModel)]="data.mobile">
+                     
+                    </div>
+            
+            </div>
+  
+          </div>
+          <div class="col-sm-6 text-left">
+                <div class="custom-control custom-switch" >
+                  <button type="button" uiSref="work" class="btn btn-success btn-raised"
+                    (click)="complete(selectedlead.banner)">
+                    Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+        
+                </div>
+        
+          </div>
+        </div>
+  
+      
+        <!-- <div class="m-t-2">
+          <ngb-progressbar type="success" [value]="35"></ngb-progressbar>
+        </div> -->
+      </app-card>
+      <app-card [hidHeader]="true" cardClass="statustic-progress-card"
+        *ngIf="global.userdata.role!='agent'&& data.status=='Complete'">
+        <div class="row ">
+          <div class="col-sm-4 text-left">
+            <h5 class="mb-3">Mark As Won</h5>
+  
+          </div>
+          <div class="col-sm-8 ">
+            <div class="custom-control custom-switch">
+  
+              <div class="dropdown-secondary" ngbDropdown [placement]="'bottom-left'"
+                style="background-color:#23c90e; font-weight: 700; border-radius:10%;">
+                <!-- <ng-select [ngClass]="'ng-select'" [options]="options"   [placeholder]="'sdjsdhhdsjhd'"    [(ngModel)]="selectedOption"  (change)="assign(x.id,x.assignedto)" > </ng-select> -->
+                <ng-select [ngClass]="'ng-select'" [options]="siteoptions.banner" [placeholder]="'Banner'"
+                  [(ngModel)]="selectedlead.banner"> </ng-select>
+  
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+        <div class="row align-items-right">
+          <div class="custom-control custom-switch" style="margin-left:50%;">
+            <button type="button" uiSref="work" class="btn btn-success btn-raised"
+              (click)="complete(selectedlead.banner)">
+              Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+  
+          </div>
+  
+        </div>
+        <!-- <div class="m-t-2">
+          <ngb-progressbar type="success" [value]="35"></ngb-progressbar>
+        </div> -->
+      </app-card>
+  
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty>
+  

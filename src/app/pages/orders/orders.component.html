@@ -1,0 +1,297 @@
+<div class="row btn-page">
+    <div class="col-sm-12">
+        <div class="row">
+          <ng-container *ngIf="loading==false">
+  
+                <!-- Bannerscount start -->
+  <!-- statistic start -->
+  <div class="col-md-6 col-lg-4">
+    <app-card [hidHeader]="true" cardClass="statustic-card" blockClass="text-center" [isCardFooter]="true" footerClass="bg-c-blue border-0">
+      <h5 class="text-left">Total Orders</h5>
+      <span class="d-block text-c-blue f-36">{{countdata.total}}</span>
+      <p class="m-b-0">Total</p>
+      <div class="app-card-footer">
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <app-card [hidHeader]="true" cardClass="statustic-card" blockClass="text-center" [isCardFooter]="true" footerClass="bg-c-green border-0">
+      <h5 class="text-left"> Delivered Orders</h5>
+      <span class="d-block text-c-green f-36">{{countdata.delivered}}</span>
+      <p class="m-b-0">Delivered</p>
+      <div class="app-card-footer">
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <app-card [hidHeader]="true" cardClass="statustic-card" blockClass="text-center" [isCardFooter]="true" footerClass="bg-c-red border-0">
+      <h5 class="text-left"> Pending Orders</h5>
+      <span class="d-block text-c-red f-36">{{countdata.pending}}</span>
+      <p class="m-b-0">Pending</p>
+      <div class="app-card-footer">
+      </div>
+    </app-card>
+  </div>
+  </ng-container>
+  <!-- statistic end -->
+  
+  <!-- Bannerscount end -->
+  
+  <!-- statistic end -->
+  <ng-container *ngIf="loading==true">
+    <!-- Bannerscount start -->
+  <!-- statistic start -->
+  <div class="col-md-6 col-lg-4" *ngFor="let x of [0,1,2]">
+  <app-card [hidHeader]="true" cardClass="statustic-card" blockClass="text-center" [isCardFooter]="true" footerClass="bg-c-blue border-0">
+  <h5 class="text-left"> <div class="item" style="width:40%"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div></h5>
+  <span class="d-block text-c-blue f-36"> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div></span>
+  <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>
+  <div class="app-card-footer">
+  </div>
+  </app-card>
+  </div>
+  
+  </ng-container>
+  
+  <!-- statistic end -->
+  
+              </div>
+    </div>
+    <div class="col-sm-12">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-6 text-left">
+            <div  class="col-sm-6 text-left" *ngIf="!loading" >
+              <!-- class="col-sm-8 " *ngIf="data.status!='Won'" -->
+              <!-- modalProject.show(); type='add'; -->
+              <div class="custom-control custom-switch">
+  
+             
+  
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-sm-6 text-right">
+            
+            <!-- <button class="btn btn-success btn-sm btn-round has-ripple" (click)="adduser()"><i class="feather icon-plus"></i> Add User</button> -->
+          </div>
+          <br>
+          <app-ui-modal #modalProject>
+            <div class="app-modal-header"  *ngIf="type=='add'">
+              <h5 class="modal-title">Enter Category Details</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="app-modal-body"  *ngIf="type=='add'">
+            
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="lendername">category name </label> 
+                      <input class="form-control input-md" id="text" name="lendername" type="text" placeholder="Enter categoryname" [ngClass]="{'is-invalid': !lendername.valid && (lendername.dirty || lendername.touched || isSubmit)}" #lendername="ngModel" required lendername [(ngModel)]="formInput.lendername">
+                      <label *ngIf="!lendername.valid && (lendername.dirty || lendername.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+                    </div>
+                  </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Priority </label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter priority" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the priority</label>
+                    </div>
+                  </div>  
+                     
+               
+                                    <div class="col-md-12">
+                    <div class="form-group">
+                      <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                      <file-upload accept="image/*"  [(ngModel)]="uploadedFiles" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>  
+  
+  
+            
+  
+       
+                 
+           
+               
+                   
+               
+                 
+                </div>
+                <!-- <div class="form-group text-center">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+                </div> -->
+                <hr>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="addlender(validationForm)"> Add  <div style="zoom:0.7;" class="spinner-border" *ngIf="buttonloading"  role="status"></div></button>
+            
+                    </div>
+                  </div>
+                </div>
+            </form>
+             
+           
+            </div> 
+  
+                    <!--  Update modal start -->
+                    <div class="app-modal-header"  *ngIf="type=='update'">
+                      <h5 class="modal-title">Update Category Details</h5>
+                      <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalProject.hide()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+             <div class="app-modal-body" *ngIf="type=='update'">
+            
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="cname">Category name </label> 
+                      <input class="form-control input-md" id="text" name="cname" type="text" placeholder="Enter Category name" [ngClass]="{'is-invalid': !cname.valid && (cname.dirty || cname.touched || isSubmit)}" #cname="ngModel" required cname [(ngModel)]="formInput2.cname">
+                      <label *ngIf="!cname.valid && (cname.dirty || cname.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+                    </div>
+                  </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Priority</label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter priority" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput2.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the priority.</label>
+                    </div>
+                  </div>  
+                  
+               
+                                    <div class="col-md-5">
+                    <div class="form-group" style="background-color: rgba(0, 0, 0, 0);">
+ <img src="http://13.127.106.5/henred/{{formInput2.image}}" width="100%"  />                   
+  
+                    </div>
+                  </div>                           <div class="col-md-7">
+                    <div class="form-group">
+                      <!-- <file-upload simple [control]="fileUploadControl"  [(ngModel)]="uploadedFiles" formControlName="files"></file-upload> -->
+                      <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+  
+                    </div>
+                  </div> 
+                 </div>
+                <!-- <div class="form-group text-center">
+                  <button type="button" uiSref="work" class="btn btn-primary btn-raised"  (click)="save(validationForm)"> Update <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+                </div> -->
+                <hr>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="updatelender(validationForm)"> Update  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+            
+                    </div>
+                  </div>
+                </div>
+            </form>
+                     <!--  Update modal end  -->
+  
+           
+            </div>
+          </app-ui-modal>
+  
+  
+          
+          
+        </div>
+        <br>
+        <div class="table-responsive" *ngIf="!loading">
+          <table  [dtOptions]="dtExportButtonOptions"  datatable  id="report-table" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>Shopname</th>
+              <th>Address</th>
+              <th>Mobile</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th style="display:none;">Products</th>
+              <!-- <th>Products</th> -->
+              
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of tabledata; let i = index;" (click)="vieworder(x.id)">
+              <td>{{x.id}}</td>
+              <td>{{x.shopname}}</td>
+              <td>{{x.city}},{{x.state}}-{{x.pincode}} </td>
+              <td>{{x.mobile}} </td>
+              <td> &#36; {{x.total}} </td>
+              <td>{{x.status}} </td>
+              <td style="display:none;">{{x.product}} </td>
+              <!-- <td *ngFor="let y of x.product" style="display: none;">{{y.name}}({{y.price}}*{{y.count}}) </td> -->
+              <!-- <td>{{x.status}} </td> -->
+              <!-- <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" checked *ngIf="x.status =='1' && statusloading[x.id]!=1"  (click)="chnagestatus(x.id,'0')" class="custom-control-input" id="{{x.id+'switch'}}">
+                  <input type="checkbox"   *ngIf="x.status =='0'  && statusloading[x.id]!=1"   (click)="chnagestatus(x.id,'1')" class="custom-control-input" id="{{x.id+'switch'}}">
+                  <div style="zoom:0.7; margin-left:-55px !important;" class="spinner-border" *ngIf="statusloading[x.id]==1" role="status">
+                  </div>
+                  <label  *ngIf="statusloading[x.id]!=1" class="custom-control-label" for="{{x.id+'switch'}}"></label>
+                </div>
+              </td> -->
+            
+              <!-- <td><a href="javascript:"><i class="icon feather icon-edit f-w-600 f-16 m-r-15 text-c-green" (click)="viewuser(x.id)" ngbTooltip="Edit"></i></a><a href="javascript:"><i (click)="deleteconfirm(x.id)" ngbTooltip="Delete"  class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i></a></td> -->
+  
+            </tr>
+  
+  
+      
+  
+  
+   
+          
+            </tbody>
+          </table>
+        </div>  
+            <div class="table-responsive" *ngIf="loading==true">
+          <table  [dtOptions]="dtExportButtonOptions"  datatable  id="report-table" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>--</th>
+              <th>---</th>
+              <th>--</th>
+              <th>--</th>
+              <th>--</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of [0,1,2,3,4,5,7]; let i = index;">
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+              <td> <div class="item"><ngx-skeleton-loader count="1" > </ngx-skeleton-loader></div>   </td>
+  
+           
+            </tr>
+  
+  
+      
+  
+  
+   
+          
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty>
+  

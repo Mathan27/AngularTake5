@@ -1,0 +1,180 @@
+<div class="row btn-page">
+   
+    <div class="col-sm-8">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">  
+            
+            <h2> Add Instruments</h2>
+            <br>
+            <br>
+            <br>
+  
+                 
+             <div class="app-modal-body">
+          
+
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="lendername"> Name </label> 
+                      <input class="form-control input-md" id="text" name="lendername" type="text" placeholder="Enter Banner name" [ngClass]="{'is-invalid': !lendername.valid && (lendername.dirty || lendername.touched || isSubmit)}" #lendername="ngModel" required lendername [(ngModel)]="formInput2.lendername">
+                      <!-- <label *ngIf="!lendername.valid && (lendername.dirty || lendername.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label> -->
+                    </div>
+                  </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Part no </label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter part no" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput2.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div> 
+                      <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Brand  </label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter brand" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" >
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div> 
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Suitable For</label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter suitable for" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" >
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div>  
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="link">Description</label> 
+                      <input class="form-control input-md" id="text" name="link" type="text" placeholder="Enter the Description" [ngClass]="{'is-invalid': !link.valid && (link.dirty || link.touched || isSubmit)}" #link="ngModel" required link [(ngModel)]="formInput2.link">
+                      <label *ngIf="!link.valid && (link.dirty || link.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the url.</label>
+                    </div>
+                  </div>   
+              
+                                    <div class="col-md-6">
+                    <div class="form-group"> 
+                        <label class="form-control-label"  style="margin-bottom: 20px; margin-top: 0px;" for="link">Image</label> 
+
+                      <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>  </div>
+             
+                <hr>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"   (click)="addlender(validationForm)"> Add  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+            
+                    </div>
+                  </div>
+                </div>
+            </form>
+  
+           
+            </div>
+          </div>
+          </div>
+          
+      </app-card>
+    </div>
+    <div>
+           
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty>
+  <!-- <div class="row btn-page">
+   
+    <div class="col-sm-8">
+      <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="row align-items-center m-l-0">
+          <div class="col-sm-12 text-left">  
+            
+            <h2> Add Product</h2>
+            <br>
+            <br>
+            <br>
+  
+                 
+             <div class="app-modal-body">
+          
+
+              <form #validationForm="ngForm" class="editForm" novalidate style="overflow:visible;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="lendername"> Name </label> 
+                      <input class="form-control input-md" id="text" name="lendername" type="text" placeholder="Enter Banner name" [ngClass]="{'is-invalid': !lendername.valid && (lendername.dirty || lendername.touched || isSubmit)}" #lendername="ngModel" required lendername [(ngModel)]="formInput2.lendername">
+                      <label *ngIf="!lendername.valid && (lendername.dirty || lendername.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the name.</label>
+                    </div>
+                  </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Parn no </label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter part no" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput2.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div> 
+                      <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Brand  </label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter brand" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput2.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div> 
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="pid">Suitable For</label> 
+                      <input class="form-control input-md" id="text" name="pid" type="text" placeholder="Enter suitable for" [ngClass]="{'is-invalid': !pid.valid && (pid.dirty || pid.touched || isSubmit)}" #pid="ngModel" required pid [(ngModel)]="formInput2.pid">
+                      <label *ngIf="!pid.valid && (pid.dirty || pid.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback"> required</label>
+                    </div>
+                  </div>  
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="link">Description</label> 
+                      <input class="form-control input-md" id="text" name="link" type="text" placeholder="Enter the Description" [ngClass]="{'is-invalid': !link.valid && (link.dirty || link.touched || isSubmit)}" #link="ngModel" required link [(ngModel)]="formInput2.link">
+                      <label *ngIf="!link.valid && (link.dirty || link.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the url.</label>
+                    </div>
+                  </div>   
+              
+                                    <div class="col-md-6">
+                    <div class="form-group"> 
+                        <label class="form-control-label"  style="margin-bottom: 20px; margin-top: 0px;" for="link">Image</label> 
+
+                      <file-upload accept="image/*" [(ngModel)]="uploadedFiles2" name="files" simple></file-upload>
+  
+                    </div>
+                  </div>  </div>
+             
+                <hr>
+                <div class="row align-items-center m-l-0" >
+                  <div class="col-sm-6 text-left">
+                   
+                              </div>
+                  <div class="col-sm-6 text-right">
+                    <div class="custom-control custom-switch">
+                      <button type="button" uiSref="work" class="btn btn-primary btn-raised"  [disabled]="buttonloading"  (click)="updatelender(validationForm)"> Add  <span style="margin-left:10px;"><i class="feather icon-plus"></i></span></button>
+            
+                    </div>
+                  </div>
+                </div>
+            </form>
+  
+           
+            </div>
+          </div>
+          </div>
+          
+      </app-card>
+    </div>
+    <div>
+           
+    </div>
+  </div>
+  <ng2-toasty [position]="global.position"></ng2-toasty> -->
+  
+  

@@ -1,0 +1,40 @@
+<div class="auth-wrapper">
+    <div class="auth-content">
+      <div class="card">
+        <div class="row align-items-center text-center">
+          <div class="col-md-12">
+            <div class="card-body">
+              <!-- <img src="assets/logo." alt="" class="img-fluid mb-4"> -->
+              <h4 class="mb-3 f-w-400">Signin</h4>
+              <form #validationForm="ngForm" novalidate style="overflow:visible;">
+ 
+              <div class="form-group mb-3">
+                      <input class="form-control input-md" id="text" name="username" type="text" placeholder="Enter Username" [ngClass]="{'is-invalid': !username.valid && (username.dirty || username.touched || isSubmit)}" #username="ngModel" required username [(ngModel)]="formInput.username">
+                      <label *ngIf="!username.valid && (username.dirty || username.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the valid username.</label>
+              </div>  
+               <div class="form-group mb-3">
+                      <input class="form-control input-md" id="text" name="password" type="password" placeholder="Enter password" [ngClass]="{'is-invalid': !password.valid && (password.dirty || password.touched || isSubmit)}" #password="ngModel" required password [(ngModel)]="formInput.password">
+                      <label *ngIf="!password.valid && (password.dirty || password.touched || isSubmit)" id="validation-cmbGear-error" class="error jquery-validation-error small form-text invalid-feedback">Please enter the valid password.</label>
+              </div>
+            
+              <div class="custom-control custom-checkbox text-left mb-4 mt-2">
+                <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">-->
+                <label *ngIf="invalid==true" style="color: red; font-weight: bold">Invalid username and password !</label> 
+
+              </div>
+              <button  [disabled]="loading==true" (click)="login(validationForm)" class="btn btn-block btn-primary mb-4" style="font-weight: bold">Sign In
+                 <div *ngIf="loading==true"  class="spinner-border" style="zoom: 0.7;" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </button>
+              <!-- <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/reset-password']" class="f-w-400">Reset</a></p>
+              <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']" class="f-w-400">Signup</a></p> -->
+            </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

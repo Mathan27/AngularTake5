@@ -1,0 +1,905 @@
+<div class="user-profile user-card mb-4">
+  <div class="card-header border-0 p-0 pb-0">
+    <div class="cover-img-block">
+
+
+    </div>
+  </div>
+  <div class="card-body py-0">
+    <div class="user-about-block m-0">
+      <div class="row">
+        <div class="col-md-4 text-center mt-n5">
+          <div class="change-profile text-center">
+            <div class="dropdown w-auto d-inline-block" ngbDropdown>
+              <a class="dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle aria-haspopup="true"
+                aria-expanded="false">
+                <div class="profile-dp">
+                  <div class="position-relative d-inline-block">
+                    <img class="img-radius img-fluid wid-100" src="assets/images/user/avatar-5.jpg" alt="User image">
+                  </div>
+
+                </div>
+                <div class="certificated-badge">
+                  <i class="fas fa-certificate text-c-blue bg-icon"></i>
+                  <i class="fas fa-check front-icon text-white"></i>
+                </div>
+              </a>
+
+            </div>
+          </div>
+          <h5 class="mb-1">{{profile.firstname}} {{profile.lastname}}</h5>
+          <label _ngcontent-lkd-c120="" *ngIf="profile.status=='active'"
+            class="badge badge-light-success">Active</label>
+          <label _ngcontent-lkd-c120="" *ngIf="profile.status=='inactive'"
+            class="badge badge-light-danger">Inactive</label>
+
+        </div>
+        <div class="col-md-8 mt-md-4">
+          <div class="row">
+            <div class="col-md-6" style="margin-top: -10%;bottom:0;">
+              <div class="card amount-card overflow-hidden">
+                <div class="card-body">
+                  <h2 class="f-w-400">{{count.total}}</h2>
+                  <p class="text-muted f-w-600 f-16"><span class="text-c-blue">Leads</span> Assigned</p>
+                </div>
+                <div id="amount-processed" style="min-height: 50px;">
+                  <div id="apexchartsfo62dywa" class="apexcharts-canvas apexchartsfo62dywa light"
+                    style="width: 406px; height: 50px;"><svg id="SvgjsSvg1988" width="406" height="50"
+                      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                      transform="translate(0, 0)" style="background: transparent;">
+                      <g id="SvgjsG1990" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
+                        <defs id="SvgjsDefs1989">
+                          <clipPath id="gridRectMaskfo62dywa">
+                            <rect id="SvgjsRect1994" width="409" height="53" x="-1.5" y="-1.5" rx="0" ry="0"
+                              fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                          </clipPath>
+                          <clipPath id="gridRectMarkerMaskfo62dywa">
+                            <rect id="SvgjsRect1995" width="414" height="58" x="-4" y="-4" rx="0" ry="0" fill="#ffffff"
+                              opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                          </clipPath>
+                        </defs>
+                        <line id="SvgjsLine1993" x1="0" y1="0" x2="0" y2="50" stroke="#b6b6b6" stroke-dasharray="3"
+                          class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="50" fill="#b1b9c4" filter="none"
+                          fill-opacity="0.9" stroke-width="1"></line>
+                        <g id="SvgjsG2044" class="apexcharts-xaxis" transform="translate(0, 0)">
+                          <g id="SvgjsG2045" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g>
+                        </g>
+                        <g id="SvgjsG2048" class="apexcharts-grid">
+                          <g id="SvgjsG2049" class="apexcharts-gridlines-horizontal" style="display: none;">
+                            <line id="SvgjsLine2051" x1="0" y1="0" x2="406" y2="0" stroke="#e0e0e0" stroke-dasharray="0"
+                              class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2052" x1="0" y1="10" x2="406" y2="10" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2053" x1="0" y1="20" x2="406" y2="20" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2054" x1="0" y1="30" x2="406" y2="30" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2055" x1="0" y1="40" x2="406" y2="40" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2056" x1="0" y1="50" x2="406" y2="50" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                          </g>
+                          <g id="SvgjsG2050" class="apexcharts-gridlines-vertical" style="display: none;"></g>
+                          <line id="SvgjsLine2058" x1="0" y1="50" x2="406" y2="50" stroke="transparent"
+                            stroke-dasharray="0"></line>
+                          <line id="SvgjsLine2057" x1="0" y1="1" x2="0" y2="50" stroke="transparent"
+                            stroke-dasharray="0"></line>
+                        </g>
+                        <g id="SvgjsG1997" class="apexcharts-area-series apexcharts-plot-series">
+                          <g id="SvgjsG1998" class="apexcharts-series" seriesName="series1" data:longestSeries="true"
+                            rel="1" data:realIndex="0">
+                            <path id="SvgjsPath2042"
+                              d="M 0 50L 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5L 406 50M 406 5.5z"
+                              fill="rgba(70,128,255,0.3)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                              stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0"
+                              clip-path="url(#gridRectMaskfo62dywa)"
+                              pathTo="M 0 50L 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5L 406 50M 406 5.5z"
+                              pathFrom="M -1 50L -1 50L 20.3 50L 40.6 50L 60.9 50L 81.2 50L 101.5 50L 121.8 50L 142.1 50L 162.4 50L 182.7 50L 203 50L 223.29999999999998 50L 243.6 50L 263.9 50L 284.2 50L 304.5 50L 324.8 50L 345.09999999999997 50L 365.4 50L 385.7 50L 406 50">
+                            </path>
+                            <path id="SvgjsPath2043"
+                              d="M 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5"
+                              fill="none" fill-opacity="1" stroke="#4680ff" stroke-opacity="1" stroke-linecap="butt"
+                              stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="0"
+                              clip-path="url(#gridRectMaskfo62dywa)"
+                              pathTo="M 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5"
+                              pathFrom="M -1 50L -1 50L 20.3 50L 40.6 50L 60.9 50L 81.2 50L 101.5 50L 121.8 50L 142.1 50L 162.4 50L 182.7 50L 203 50L 223.29999999999998 50L 243.6 50L 263.9 50L 284.2 50L 304.5 50L 324.8 50L 345.09999999999997 50L 365.4 50L 385.7 50L 406 50">
+                            </path>
+                            <g id="SvgjsG1999" class="apexcharts-series-markers-wrap">
+                              <g id="SvgjsG2001" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2002" r="3" cx="0" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wjmfjcvkhi" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="0" j="0" index="0"
+                                  default-marker-size="3"></circle>
+                                <circle id="SvgjsCircle2003" r="3" cx="20.3" cy="17"
+                                  class="apexcharts-marker no-pointer-events wdm2skvzz" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="1" j="1" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2004" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2005" r="3" cx="40.6" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events w2xvicyin" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="2" j="2" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2006" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2007" r="3" cx="60.9" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events woo1h8brk" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="3" j="3" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2008" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2009" r="3" cx="81.2" cy="18.5"
+                                  class="apexcharts-marker no-pointer-events wtskahlmb" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="4" j="4" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2010" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2011" r="3" cx="101.5" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events whyqc7ov2" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="5" j="5" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2012" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2013" r="3" cx="121.8" cy="28"
+                                  class="apexcharts-marker no-pointer-events wwlproboc" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="6" j="6" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2014" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2015" r="3" cx="142.1" cy="44"
+                                  class="apexcharts-marker no-pointer-events w3al4tdxq" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="7" j="7" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2016" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2017" r="3" cx="162.4" cy="32"
+                                  class="apexcharts-marker no-pointer-events wap03oolc" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="8" j="8" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2018" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2019" r="3" cx="182.7" cy="45.5"
+                                  class="apexcharts-marker no-pointer-events wendzhhhvk" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="9" j="9" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2020" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2021" r="3" cx="203" cy="23"
+                                  class="apexcharts-marker no-pointer-events wwyujs4mt" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="10" j="10" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2022" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2023" r="3" cx="223.29999999999998" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wwgc4lyc1" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="11" j="11" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2024" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2025" r="3" cx="243.6" cy="17"
+                                  class="apexcharts-marker no-pointer-events w7hl1xkgp" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="12" j="12" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2026" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2027" r="3" cx="263.9" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events web84w8cp" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="13" j="13" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2028" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2029" r="3" cx="284.2" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events wdr3i5jl6" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="14" j="14" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2030" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2031" r="3" cx="304.5" cy="18.5"
+                                  class="apexcharts-marker no-pointer-events wt7c7a1ix" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="15" j="15" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2032" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2033" r="3" cx="324.8" cy="23"
+                                  class="apexcharts-marker no-pointer-events w1e4cvh90i" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="16" j="16" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2034" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2035" r="3" cx="345.09999999999997" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wqbt3ggdi" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="17" j="17" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2036" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2037" r="3" cx="365.4" cy="17"
+                                  class="apexcharts-marker no-pointer-events wkh2wlzb7" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="18" j="18" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2038" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2039" r="3" cx="385.7" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events wgcukmnzm" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="19" j="19" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2040" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2041" r="3" cx="406" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events wkmjop2ck" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="20" j="20" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                            </g>
+                          </g>
+                          <g id="SvgjsG2000" class="apexcharts-datalabels"></g>
+                        </g>
+                        <line id="SvgjsLine2059" x1="0" y1="0" x2="406" y2="0" stroke="#b6b6b6" stroke-dasharray="0"
+                          stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                        <line id="SvgjsLine2060" x1="0" y1="0" x2="406" y2="0" stroke-dasharray="0" stroke-width="0"
+                          class="apexcharts-ycrosshairs-hidden"></line>
+                        <g id="SvgjsG2061" class="apexcharts-yaxis-annotations"></g>
+                        <g id="SvgjsG2062" class="apexcharts-xaxis-annotations"></g>
+                        <g id="SvgjsG2063" class="apexcharts-point-annotations"></g>
+                      </g>
+                      <rect id="SvgjsRect1992" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1"
+                        stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      <g id="SvgjsG2046" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                        <g id="SvgjsG2047" class="apexcharts-yaxis-texts-g"></g>
+                      </g>
+                    </svg>
+                    <div class="apexcharts-legend"></div>
+                    <div class="apexcharts-tooltip light">
+                      <div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker"
+                          style="background-color: rgb(70, 128, 255);"></span>
+                        <div class="apexcharts-tooltip-text"
+                          style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+                          <div class="apexcharts-tooltip-y-group"><span
+                              class="apexcharts-tooltip-text-label"></span><span
+                              class="apexcharts-tooltip-text-value"></span></div>
+                          <div class="apexcharts-tooltip-z-group"><span
+                              class="apexcharts-tooltip-text-z-label"></span><span
+                              class="apexcharts-tooltip-text-z-value"></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="resize-triggers">
+                  <div class="expand-trigger">
+                    <div style="width: 407px; height: 177px;"></div>
+                  </div>
+                  <div class="contract-trigger"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="margin-top: -10%;bottom:0;">
+              <div class="card amount-card overflow-hidden">
+                <div class="card-body">
+                  <h2 class="f-w-400">{{count.won}}</h2>
+                  <p class="text-muted f-w-600 f-16"><span class="text-c-blue">Cases</span> Won</p>
+                </div>
+                <div id="amount-processed" style="min-height: 50px;">
+                  <div id="apexchartsfo62dywa" class="apexcharts-canvas apexchartsfo62dywa light"
+                    style="width: 406px; height: 50px;"><svg id="SvgjsSvg1988" width="406" height="50"
+                      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                      transform="translate(0, 0)" style="background: transparent;">
+                      <g id="SvgjsG1990" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
+                        <defs id="SvgjsDefs1989">
+                          <clipPath id="gridRectMaskfo62dywa">
+                            <rect id="SvgjsRect1994" width="409" height="53" x="-1.5" y="-1.5" rx="0" ry="0"
+                              fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                          </clipPath>
+                          <clipPath id="gridRectMarkerMaskfo62dywa">
+                            <rect id="SvgjsRect1995" width="414" height="58" x="-4" y="-4" rx="0" ry="0" fill="#ffffff"
+                              opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                          </clipPath>
+                        </defs>
+                        <line id="SvgjsLine1993" x1="0" y1="0" x2="0" y2="50" stroke="#b6b6b6" stroke-dasharray="3"
+                          class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="50" fill="#b1b9c4" filter="none"
+                          fill-opacity="0.9" stroke-width="1"></line>
+                        <g id="SvgjsG2044" class="apexcharts-xaxis" transform="translate(0, 0)">
+                          <g id="SvgjsG2045" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g>
+                        </g>
+                        <g id="SvgjsG2048" class="apexcharts-grid">
+                          <g id="SvgjsG2049" class="apexcharts-gridlines-horizontal" style="display: none;">
+                            <line id="SvgjsLine2051" x1="0" y1="0" x2="406" y2="0" stroke="#e0e0e0" stroke-dasharray="0"
+                              class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2052" x1="0" y1="10" x2="406" y2="10" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2053" x1="0" y1="20" x2="406" y2="20" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2054" x1="0" y1="30" x2="406" y2="30" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2055" x1="0" y1="40" x2="406" y2="40" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                            <line id="SvgjsLine2056" x1="0" y1="50" x2="406" y2="50" stroke="#e0e0e0"
+                              stroke-dasharray="0" class="apexcharts-gridline"></line>
+                          </g>
+                          <g id="SvgjsG2050" class="apexcharts-gridlines-vertical" style="display: none;"></g>
+                          <line id="SvgjsLine2058" x1="0" y1="50" x2="406" y2="50" stroke="transparent"
+                            stroke-dasharray="0"></line>
+                          <line id="SvgjsLine2057" x1="0" y1="1" x2="0" y2="50" stroke="transparent"
+                            stroke-dasharray="0"></line>
+                        </g>
+                        <g id="SvgjsG1997" class="apexcharts-area-series apexcharts-plot-series">
+                          <g id="SvgjsG1998" class="apexcharts-series" seriesName="series1" data:longestSeries="true"
+                            rel="1" data:realIndex="0">
+                            <path id="SvgjsPath2042"
+                              d="M 0 50L 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5L 406 50M 406 5.5z"
+                              fill="rgba(70,128,255,0.3)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                              stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0"
+                              clip-path="url(#gridRectMaskfo62dywa)"
+                              pathTo="M 0 50L 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5L 406 50M 406 5.5z"
+                              pathFrom="M -1 50L -1 50L 20.3 50L 40.6 50L 60.9 50L 81.2 50L 101.5 50L 121.8 50L 142.1 50L 162.4 50L 182.7 50L 203 50L 223.29999999999998 50L 243.6 50L 263.9 50L 284.2 50L 304.5 50L 324.8 50L 345.09999999999997 50L 365.4 50L 385.7 50L 406 50">
+                            </path>
+                            <path id="SvgjsPath2043"
+                              d="M 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5"
+                              fill="none" fill-opacity="1" stroke="#4680ff" stroke-opacity="1" stroke-linecap="butt"
+                              stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="0"
+                              clip-path="url(#gridRectMaskfo62dywa)"
+                              pathTo="M 0 37.5L 20.3 17L 40.6 29.5L 60.9 5.5L 81.2 18.5L 101.5 37.5L 121.8 28L 142.1 44L 162.4 32L 182.7 45.5L 203 23L 223.29999999999998 37.5L 243.6 17L 263.9 29.5L 284.2 5.5L 304.5 18.5L 324.8 23L 345.09999999999997 37.5L 365.4 17L 385.7 29.5L 406 5.5"
+                              pathFrom="M -1 50L -1 50L 20.3 50L 40.6 50L 60.9 50L 81.2 50L 101.5 50L 121.8 50L 142.1 50L 162.4 50L 182.7 50L 203 50L 223.29999999999998 50L 243.6 50L 263.9 50L 284.2 50L 304.5 50L 324.8 50L 345.09999999999997 50L 365.4 50L 385.7 50L 406 50">
+                            </path>
+                            <g id="SvgjsG1999" class="apexcharts-series-markers-wrap">
+                              <g id="SvgjsG2001" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2002" r="3" cx="0" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wjmfjcvkhi" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="0" j="0" index="0"
+                                  default-marker-size="3"></circle>
+                                <circle id="SvgjsCircle2003" r="3" cx="20.3" cy="17"
+                                  class="apexcharts-marker no-pointer-events wdm2skvzz" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="1" j="1" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2004" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2005" r="3" cx="40.6" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events w2xvicyin" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="2" j="2" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2006" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2007" r="3" cx="60.9" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events woo1h8brk" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="3" j="3" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2008" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2009" r="3" cx="81.2" cy="18.5"
+                                  class="apexcharts-marker no-pointer-events wtskahlmb" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="4" j="4" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2010" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2011" r="3" cx="101.5" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events whyqc7ov2" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="5" j="5" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2012" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2013" r="3" cx="121.8" cy="28"
+                                  class="apexcharts-marker no-pointer-events wwlproboc" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="6" j="6" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2014" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2015" r="3" cx="142.1" cy="44"
+                                  class="apexcharts-marker no-pointer-events w3al4tdxq" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="7" j="7" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2016" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2017" r="3" cx="162.4" cy="32"
+                                  class="apexcharts-marker no-pointer-events wap03oolc" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="8" j="8" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2018" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2019" r="3" cx="182.7" cy="45.5"
+                                  class="apexcharts-marker no-pointer-events wendzhhhvk" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="9" j="9" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2020" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2021" r="3" cx="203" cy="23"
+                                  class="apexcharts-marker no-pointer-events wwyujs4mt" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="10" j="10" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2022" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2023" r="3" cx="223.29999999999998" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wwgc4lyc1" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="11" j="11" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2024" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2025" r="3" cx="243.6" cy="17"
+                                  class="apexcharts-marker no-pointer-events w7hl1xkgp" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="12" j="12" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2026" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2027" r="3" cx="263.9" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events web84w8cp" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="13" j="13" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2028" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2029" r="3" cx="284.2" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events wdr3i5jl6" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="14" j="14" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2030" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2031" r="3" cx="304.5" cy="18.5"
+                                  class="apexcharts-marker no-pointer-events wt7c7a1ix" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="15" j="15" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2032" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2033" r="3" cx="324.8" cy="23"
+                                  class="apexcharts-marker no-pointer-events w1e4cvh90i" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="16" j="16" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2034" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2035" r="3" cx="345.09999999999997" cy="37.5"
+                                  class="apexcharts-marker no-pointer-events wqbt3ggdi" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="17" j="17" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2036" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2037" r="3" cx="365.4" cy="17"
+                                  class="apexcharts-marker no-pointer-events wkh2wlzb7" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="18" j="18" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2038" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2039" r="3" cx="385.7" cy="29.5"
+                                  class="apexcharts-marker no-pointer-events wgcukmnzm" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="19" j="19" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                              <g id="SvgjsG2040" class="apexcharts-series-markers"
+                                clip-path="url(#gridRectMarkerMaskfo62dywa)">
+                                <circle id="SvgjsCircle2041" r="3" cx="406" cy="5.5"
+                                  class="apexcharts-marker no-pointer-events wkmjop2ck" stroke="#4680ff" fill="#ffffff"
+                                  fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="20" j="20" index="0"
+                                  default-marker-size="3"></circle>
+                              </g>
+                            </g>
+                          </g>
+                          <g id="SvgjsG2000" class="apexcharts-datalabels"></g>
+                        </g>
+                        <line id="SvgjsLine2059" x1="0" y1="0" x2="406" y2="0" stroke="#b6b6b6" stroke-dasharray="0"
+                          stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                        <line id="SvgjsLine2060" x1="0" y1="0" x2="406" y2="0" stroke-dasharray="0" stroke-width="0"
+                          class="apexcharts-ycrosshairs-hidden"></line>
+                        <g id="SvgjsG2061" class="apexcharts-yaxis-annotations"></g>
+                        <g id="SvgjsG2062" class="apexcharts-xaxis-annotations"></g>
+                        <g id="SvgjsG2063" class="apexcharts-point-annotations"></g>
+                      </g>
+                      <rect id="SvgjsRect1992" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1"
+                        stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      <g id="SvgjsG2046" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                        <g id="SvgjsG2047" class="apexcharts-yaxis-texts-g"></g>
+                      </g>
+                    </svg>
+                    <div class="apexcharts-legend"></div>
+                    <div class="apexcharts-tooltip light">
+                      <div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker"
+                          style="background-color: rgb(70, 128, 255);"></span>
+                        <div class="apexcharts-tooltip-text"
+                          style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+                          <div class="apexcharts-tooltip-y-group"><span
+                              class="apexcharts-tooltip-text-label"></span><span
+                              class="apexcharts-tooltip-text-value"></span></div>
+                          <div class="apexcharts-tooltip-z-group"><span
+                              class="apexcharts-tooltip-text-z-label"></span><span
+                              class="apexcharts-tooltip-text-z-value"></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="resize-triggers">
+                  <div class="expand-trigger">
+                    <div style="width: 407px; height: 177px;"></div>
+                  </div>
+                  <div class="contract-trigger"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- profile body start -->
+<div class="row">
+  <div class="col-md-8 order-md-2">
+    
+    <app-card [hidHeader]="true" cardClass="card-datatable">
+        <div class="col-xl-12 col-lg-12 filter-bar invoice-list">
+            <nav class="navbar m-b-30 p-10">
+              <ul class="nav">
+                <li class="nav-item active">
+                  <button class="btn btn-primary btn-sm btn-round has-ripple" (click)="filter= !filter"><i
+                    class="feather icon-filter"></i> Filter</button>          </li>
+                <li class="nav-item" ngbDropdown>
+                  <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bydate"><i class="far fa-clock"></i> By Date</a>
+                  <div ngbDropdownMenu aria-labelledby="bydate">
+                    <a class="dropdown-item" href="javascript:"  [ngClass]="{'all' : this.selectedtime=='today'}" (click)="alldata('reload')">Show all</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='today'}" (click)="today('reload')">Today</a>
+                    <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='yesterday'}" (click)="yesterday('reload')">Yesterday</a>
+                    <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='last7'}" (click)="last7('reload')">Last 7 days</a>
+                    <a class="dropdown-item" href="javascript:" [ngClass]="{'time' : this.selectedtime=='last30'}" (click)="last30('reload')">Last 30 days</a>
+                  
+                  </div>
+                  <style>
+                    .time{
+                     background-color: rgba(144, 223, 26, 0.527);
+                    }
+                  </style>
+                </li>
+                <!-- <li class="nav-item" ngbDropdown>
+                  <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bystatus"><i class="fas fa-chart-line"></i> By Status</a>
+                  <div ngbDropdownMenu aria-labelledby="bystatus">
+                    <a class="dropdown-item" href="javascript:">Show all</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:">Open</a>
+                    <a class="dropdown-item" href="javascript:">On hold</a>
+                    <a class="dropdown-item" href="javascript:">Resolved</a>
+                    <a class="dropdown-item" href="javascript:">Closed</a>
+                    <a class="dropdown-item" href="javascript:">Dublicate</a>
+                    <a class="dropdown-item" href="javascript:">Wontfix</a>
+                  </div>
+                </li> -->
+                <!-- <li class="nav-item" ngbDropdown>
+                  <a class="nav-link text-secondary" ngbDropdownToggle href="javascript:" id="bypriority"><i class="fas fa-list-ol"></i> By Priority</a>
+                  <div ngbDropdownMenu aria-labelledby="bypriority">
+                    <a class="dropdown-item" href="javascript:">Show all</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:">Highest</a>
+                    <a class="dropdown-item" href="javascript:">High</a>
+                    <a class="dropdown-item" href="javascript:">Normal</a>
+                    <a class="dropdown-item" href="javascript:">Low</a>
+                  </div>
+                </li> -->
+              </ul>
+              <div class="nav-item nav-grid">
+                <!-- <span class="m-r-15">View Mode: </span> -->
+                <!-- <button type="button" class="btn btn-primary btn-icon" (click)="ngOnInit()" [placement]="'top'" ngbTooltip="refresh">
+                  <i class="fas fa-sync"></i>
+                </button> -->
+                <!-- <button type="button" class="btn btn-primary btn-icon" [placement]="'top'" ngbTooltip="grid view">
+                  <i class="fas fa-fa-refresh"></i>
+                </button> -->
+              </div>
+      <div class="col-lg-12 col-md-12 row"> 
+              <ng-container *ngIf="filter==1">
+      <br>
+      <br>
+      <br>
+                <div class="col-lg-12 col-md-12">
+                  <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t">
+                  </ngb-datepicker>
+      
+                  <ng-template #t let-date="date" let-focused="focused">
+                    <span class="custom-range-datepicker" [class.focused]="focused"
+                      [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+                      [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null">
+                      {{ date.day }}
+                    </span>
+                  </ng-template>
+                  <pre
+                    class="m-t-20">Selected Date Range: {{ parserFormatter.format(fromDate) }} to {{ parserFormatter.format(toDate) }}</pre>
+      <span class="badge m-r-5 badge-light-primary" (click)="today()">Today</span>
+      <span class="badge m-r-5 badge-light-primary" (click)="yesterday()">yesterday</span>
+      <span class="badge m-r-5 badge-light-primary" (click)="last7()">Last 7 days</span>
+      <span class="badge m-r-5 badge-light-primary" (click)="last30()">Last 30 days</span>
+      <br>
+                      <br>
+                      <br>
+                      <br>
+      
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="row">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                    <div class="col-sm-12 col-xl-4">
+                      <ng-select [ngClass]="'ng-select'" [options]="siteoptions.site" [(ngModel)]="formdata.bysites"
+                        [multiple]="true"> </ng-select>
+                      <p class="m-t-10"> Filter By Sites.</p>
+                    </div>
+      
+                    <div class="col-sm-12 col-xl-4" *ngIf="global.userdata.role!='agent'">
+                      <ng-select [ngClass]="'ng-select'" [options]="siteoptions.agents" [(ngModel)]="formdata.byagents"
+                        [multiple]="true"> </ng-select>
+                      <p class="m-t-10"> Filter By Agents.</p>
+                    </div>
+                    <div class="col-sm-12 col-xl-4" >
+                      <ng-select [ngClass]="'ng-select'" [options]="siteoptions.status" [(ngModel)]="formdata.bystatus"
+                        [multiple]="true"> </ng-select>
+                      <p class="m-t-10"> Filter By Status.</p>
+                    </div>
+                    <div class="col-sm-12 col-xl-4" *ngIf="global.userdata.role=='superadmin'">
+                      <ng-select [ngClass]="'ng-select'" [options]="siteoptions.team" [(ngModel)]="formdata.byteam"
+                        [multiple]="true"> </ng-select>
+                      <p class="m-t-10"> Filter By Team.</p>
+                    </div>
+      
+      
+                  </div>
+                  <br>
+                  <br>
+                 
+                  <br>
+                  <br>
+                  <br>
+                  <button class="btn btn-primary btn btn-round has-ripple"
+                    (click)="filterbydate(parserFormatter.format(fromDate),parserFormatter.format(toDate))"> Submit</button>
+                </div>
+      
+              </ng-container>
+            </div>
+            </nav>
+         
+          </div>
+
+      <div class="row align-items-center m-l-0">
+        <div class="col-sm-6"></div>
+
+      </div>
+      <div class="table-responsive">
+        <table datatable id="report-table"
+          class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Case Id</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Phone</th>
+              <th>Applied On</th>
+              <th>Status</th>
+
+              <th>Last Updated</th>
+              <th>Site</th>
+              <th>Action</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of tabledata" routerLink="/lead/{{i.id}}">
+              <td>{{i.id}}</td>
+              <td>{{i.caseid}}</td>
+              <td><a>{{i.name}}</a>
+                <!-- <p class="mb-2">#5 - THEIR eyes bright and eager with many a.</p>
+                    <small class="d-block">
+                      <a href="javascript:">Start Timer</a> |
+                      <a href="javascript:">Edit</a> |
+                      <a href="javascript:" class="text-danger">Delete </a>
+                    </small> -->
+              </td>
+              <td>
+                $ {{i.amount}}
+              </td>
+              <td>{{i.mobile}}</td>
+              <td>{{i.application_time}}</td>
+              <td><span class="badge badge-danger inline-block" *ngIf="i.status=='Pending'">Pending</span>
+                <span class="badge badge-primary inline-block" *ngIf="i.status=='Voice Mail'">Voice Mail</span>
+                <span class="badge badge-warning inline-block" *ngIf="i.status=='Not At Computer'">Not At
+                  Computer</span>
+                <span class="badge badge-primary inline-block" *ngIf="i.status=='Open'">Open</span>
+                <span class="badge badge-danger inline-block" *ngIf="i.status=='Case Lost'">Case Closed</span>
+                <span class="badge badge-warning inline-block" *ngIf="i.status=='Follow Up'">Follow Up</span>
+                <span class="badge badge-success inline-block" *ngIf="i.status=='Complete'">Complete</span>
+                <span class="badge badge-success inline-block" *ngIf="i.status=='Won'">Own</span>
+              </td>
+
+
+              <td>{{i.time}}</td>
+              <td>usaonline.com</td>
+              <td><a href="javascript:"><i class="icon feather icon-eye f-w-600 f-16 m-r-15 text-c-green"
+                    ngbTooltip="View the  lead details"></i></a></td>
+
+
+            </tr>
+
+
+
+
+
+
+
+          </tbody>
+        </table>
+      </div>
+    </app-card> 
+  </div>
+  <div class="col-md-4 order-md-1">
+
+    <div class="merge-card">
+      <app-card [hidHeader]="true" cardClass="mb-0" blockClass="d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">Details</h5>
+        <button _ngcontent-lkd-c122="" *ngIf='editProfile' class="btn btn-danger btn-sm btn-round ng-tns-c93-58"
+          style="margin-right:-30%;" (click)="deleteconfirm()">Delete</button>
+        <button type="button"
+          (click)="this.editProfile = !this.editProfile; this.editProfileIcon = this.editProfile ? 'icon-x': 'icon-edit';"
+          class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse" data-target=".pro-det-edit"
+          aria-expanded="false" aria-controls="pro-det-edit-1 pro-det-edit-2">
+          <i class="feather" [ngClass]="editProfileIcon"></i>
+        </button>
+
+      </app-card>
+      <app-card [hidHeader]="true" blockClass="border-top pro-det-edit collapse show" *ngIf="!editProfile">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">First Name</label>
+          <div class="col-sm-7">
+            {{profile.firstname}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Last Name</label>
+          <div class="col-sm-7">
+            {{profile.lastname}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Username</label>
+          <div class="col-sm-7">
+            {{profile.username}}
+          </div>
+        </div>
+        <div class="form-group row" *ngIf='profile.team'>
+          <label class="col-sm-5 col-form-label font-weight-bolder">Team</label>
+          <div class="col-sm-7">
+            {{profile.team}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Role</label>
+          <div class="col-sm-7">
+            {{profile.role}}
+          </div>
+        </div>
+        <div class="form-group row" *ngIf='profile.agentid'>
+          <label class="col-sm-5 col-form-label font-weight-bolder">Agent Id</label>
+          <div class="col-sm-7">
+            {{profile.agentid}}
+          </div>
+        </div>
+      </app-card>
+      <app-card [hidHeader]="true" blockClass="border-top pro-det-edit collapse show" *ngIf="editProfile">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">First Name</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" [(ngModel)]="formdata.firstname" placeholder="First Name"
+              value="firstname">
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Last Name</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" [(ngModel)]="formdata.lastname" placeholder="First Name"
+              value="lastname">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Username</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" [(ngModel)]="formdata.username" placeholder="First Name"
+              value="lastname">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Password</label>
+          <div class="col-sm-7">
+            <input type="password" class="form-control" [(ngModel)]="formdata.password" placeholder="Password"
+              value="lastname">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Agent Id</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" [(ngModel)]="formdata.agentid" placeholder="Agent ID"
+              value="agentid">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Team</label>
+          <div class="col-sm-7">
+            <select class="form-control" name='team' [(ngModel)]="formdata.teamid" id="exampleFormControlSelect1">
+
+              <option   *ngFor="let i of team" value={{i.id}}>{{i.name}}</option>
+           
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Role</label>
+          <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="formdata.role" id="exampleFormControlSelect1">
+
+              <option value="admin" selected>Admin</option>
+              <option value="agent">Agent</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label font-weight-bolder">Status</label>
+          <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="formdata.status" id="exampleFormControlSelect1">
+
+              <option value="active" selected>Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label"></label>
+          <div class="col-sm-7">
+            <button type="button" (click)="addagent()" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+
+  </div>
+</div>
+<!-- profile body end -->
+<ng2-toasty [position]="global.position"></ng2-toasty>
